@@ -35,7 +35,7 @@ class Predict(Resource):
         
         #get data from twitter
         data = get_dataset(user_query)
-        
+
         #process data and predict
         sentences = model.process_text(data)
         predictions = model.predict(sentences)
@@ -56,4 +56,4 @@ api.add_resource(Predict, '/')
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
