@@ -10,9 +10,9 @@ import numpy as np
 class Model:
 
     def __init__(self):
-        self.model = load_model('sentimentmodel2.h5')
+        self.model = load_model('sentimentmodel4.h5')
         self.model._make_predict_function()
-        with open('tokenizer.pickle', 'rb') as handle:
+        with open('tokenizer1.pickle', 'rb') as handle:
             self.tokenizer = pickle.load(handle)
         self.max_sentence_length = self.model.layers[0].input_shape[1]
         self.lemmatizer = WordNetLemmatizer()
