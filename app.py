@@ -3,14 +3,17 @@ import pickle
 from model import Model
 from flask_restful import reqparse, abort, Api, Resource
 import tweepy
+import os
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 api = Api(app)
+load_dotenv()
 
-CONSUMER_KEY = 'xtN9VUIDAyS5eoLC0gg035jQV'
-CONSUMER_SECRET = 'kXla9AOJebgLARddBBMMwsBcbewWoZIWApoYffUcSMBPVvlffK'
-ACCESS_TOKEN = '1053917274-KJg5VGA0JUki68TrWTuT5f54t83AhGseXKML1Jg'
-ACCESS_TOKEN_SECRET = 'ZJOhe3vk2x7145M641OIYUHHTEbi2LmMuIcLJNErH6VGD'
+CONSUMER_KEY = os.environ.get('C_KEY')
+CONSUMER_SECRET = os.environ.get('CS_KEY')
+ACCESS_TOKEN = os.environ.get('A_KEY')
+ACCESS_TOKEN_SECRET = os.environ.get('AS_KEY')
 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
